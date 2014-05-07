@@ -1,9 +1,11 @@
 define([], function(){
 
-  var CP = window.CP || {};
+  var GEM = window.GEM || {};
+
+  var Gemini = window.Gemini || window.GEM;
 
   // https://github.com/youbastard/getQueryParameters
-  CP.qp = function(str) {
+  GEM.qp = function(str) {
     return (str || document.location.search)
       .replace(/(^\?)/,'')
       .split("&")
@@ -13,6 +15,6 @@ define([], function(){
       .bind({}))[0];
   };
 
-  return CP;
+  return GEM;
 
 });
