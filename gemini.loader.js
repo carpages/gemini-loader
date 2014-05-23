@@ -1,4 +1,4 @@
-define(['gemini.support'], function(support){
+define([], function(){
 
   var GEM = window.GEM || {};
 
