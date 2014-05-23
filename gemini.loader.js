@@ -4,9 +4,6 @@ define(['gemini.support'], function(support){
 
   var Gemini = window.Gemini || window.GEM;
 
-  //Add modules to GEM namespace
-  GEM.support = support;
-
   // https://github.com/youbastard/getQueryParameters
   GEM.qp = function(str) {
     return (str || document.location.search)
