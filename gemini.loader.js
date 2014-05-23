@@ -1,8 +1,11 @@
-define([], function(){
+define(['gemini.support'], function(support){
 
   var GEM = window.GEM || {};
 
   var Gemini = window.Gemini || window.GEM;
+
+  //Add modules to GEM namespace
+  GEM.support = support;
 
   // https://github.com/youbastard/getQueryParameters
   GEM.qp = function(str) {
