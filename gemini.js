@@ -54,7 +54,7 @@ define(['underscore', 'jquery', 'jquery.boiler'], function(_, $){
    * @param {function} helper The helper function
    * @return {type} Array of jQuery objects
   **/
-  $._domHelper = function(){
+  $._domHelper = function(namespace, helper){
     $.fn[namespace] = function(){
       var args = arguments;
       return this.each(function(){
