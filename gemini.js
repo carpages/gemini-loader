@@ -32,7 +32,7 @@ define(['underscore', 'jquery', 'jquery.boiler'], function(_, $){
   var G = window.G || {};
 
   //Store any data
-  $._data = G._data || {};
+  $._gemdata = G._data || {};
 
   //Copy jquery
   G = window.G = $;
