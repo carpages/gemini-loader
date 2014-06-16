@@ -37,6 +37,14 @@ define(['underscore', 'jquery', 'jquery.boiler'], function(_, $){
   //Copy jquery
   G = window.G = $;
 
+  //Add function to run queued JS
+  G.Q = function(){
+    if(!G._gemdata._qj) return;
+    _.each(G._gemdata._qj, function(callback){
+      callback.call();
+    });
+  };
+
   //Store underscore.js
   $._ = _;
 
