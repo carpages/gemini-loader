@@ -6,6 +6,7 @@
   "dependencies": {
     "jquery": "1.11.x",
     "jquery-boiler": "0.1.x",
-    "underscore": "1.6.x"
+    "underscore": "1.6.x",
+    "gemini-support": "ssh://git@stash.carpages.ca/gem/gemini-support.git",
   }
 }

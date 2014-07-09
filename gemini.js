@@ -19,6 +19,7 @@ This modules accomplishes the following:
  * @requires jquery
  * @requires jquery.boiler
  * @requires underscore
+ * @requires gemini.support
  *
  *
  * @example
@@ -27,7 +28,7 @@ This modules accomplishes the following:
  *
  */
 
-define(['underscore', 'jquery', 'jquery.boiler'], function(_, $){
+define(['underscore', 'jquery', 'gemini.support', 'jquery.boiler'], function(_, $, support){
 
   var G = window.G || {};
 
@@ -47,6 +48,9 @@ define(['underscore', 'jquery', 'jquery.boiler'], function(_, $){
 
   //Store underscore.js
   $._ = _;
+
+  //Store reference to support object
+  G.support = support;
 
   /******************************************
    * DOM HELPERS
