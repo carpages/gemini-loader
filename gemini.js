@@ -33,15 +33,15 @@ define(['underscore', 'jquery', 'gemini.support', 'jquery.boiler'], function(_, 
   var G = window.G || {};
 
   //Store any data
-  $._gemdata = G._data || {};
+  $.D = G.D || {};
 
   //Copy jquery
   G = window.G = $;
 
   //Add function to run queued JS
   G.Q = function(){
-    if(!G._gemdata._qj) return;
-    _.each(G._gemdata._qj, function(callback){
+    if(!G.D._qj) return;
+    _.each(G.D._qj, function(callback){
       callback.call();
     });
   };
