@@ -142,15 +142,29 @@ define(['underscore', 'jquery', 'gemini.support', 'jquery.boiler'], function(_, 
   });
 
   /**
-   * A custom class to fit images based on the CSS module '.fit-img' -> see _images.scss
+   * A custom class to fit images to the size of the container sent. It uses
+   * the .fit class, therefore the dom element being fitted is required to have
+   * this class.
    *
    * @private
    * @method
-   * @name gemini#_fitImages
+   * @name gemini#_fit
+   * @param {domElement} context The context to fit the item to. Defaults to
+   * window
   **/
-  $._domHelper('_fitImages', function(){
-    $(this).find('.fit-img').css({
-      padding: ($window.height()/$window.width() * 100 / 2) + '% 0'
+  $._domHelper('_fit', function(context){
+    var $context;
+    if (_.isUndefined(context)) {
+      $context = $window;
+    } else {
+      $context = $(context);
+    }
+
+    var $this;
+    if (!$this.hasClass('.fit')) return;
+
+    $this.css({
+      padding: ($context.height()/$context.width() * 100 / 2) + '% 0'
     });
   });
 
