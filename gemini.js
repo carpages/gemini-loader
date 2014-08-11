@@ -160,7 +160,7 @@ define(['underscore', 'jquery', 'gemini.support', 'jquery.boiler'], function(_, 
       $context = $(context);
     }
 
-    var $this;
+    var $this = $(this);
     if (!$this.hasClass('.fit')) return;
 
     $this.css({
