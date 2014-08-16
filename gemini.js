@@ -161,7 +161,7 @@ define(['underscore', 'jquery', 'gemini.support', 'jquery.boiler'], function(_, 
     }
 
     var $this = $(this);
-    if (!$this.hasClass('.fit')) return;
+    if (!$this.hasClass('fit')) return;
 
     $this.css({
       padding: ($context.height()/$context.width() * 100 / 2) + '% 0'
