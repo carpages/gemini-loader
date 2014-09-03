@@ -12,5 +12,9 @@
     "jquery-boiler": "0.1.x",
     "underscore": "1.6.x",
     "gemini-support": "ssh://git@stash.carpages.ca/gem/gemini-support.git"
+  },
+  "devDependencies": {
+    "requirejs": "~2.1.11",
+    "qunit": "~1.12.0"
   }
 }

@@ -28,7 +28,9 @@ This modules accomplishes the following:
  *
  */
 
-define(['underscore', 'jquery', 'gemini.support', 'jquery.boiler'], function(_, $, support){
+define(['underscore', 'jquery', 'gemini.support', 'jquery.boiler'], function(_, $, support) {
+
+  "use strict";
 
   var G = window.G || {};
 
@@ -38,6 +40,9 @@ define(['underscore', 'jquery', 'gemini.support', 'jquery.boiler'], function(_, 
   //Copy jquery
   G = window.G = $;
 
+  //Store underscore.js
+  $._ = _;
+
   //Add function to run queued JS
   G.Q = function(){
     if(!G.D._qj) return;
@@ -46,11 +51,28 @@ define(['underscore', 'jquery', 'gemini.support', 'jquery.boiler'], function(_, 
     });
   };
 
-  //Store underscore.js
-  $._ = _;
-
   //Store reference to support object
   G.support = support;
+
+  /******************************************
+   * CACHE COMMON OBJECTS
+   ******************************************/
+
+  /**
+   * Window cache
+   *
+   * @name gemini#$window
+   * @type object
+   */
+  window.$window = $(window);
+
+  /**
+   * Document cache
+   *
+   * @name gemini#$document
+   * @type object
+   */
+  window.$document = $(document);
 
   /******************************************
    * DOM HELPERS
@@ -133,7 +155,7 @@ define(['underscore', 'jquery', 'gemini.support', 'jquery.boiler'], function(_, 
   **/
   $._domHelper('_fadeOut', function(time){
 
-    $this = $(this);
+    var $this = $(this);
     $this.css({opacity: 1})
       .fadeTo(time, 0, function(){
         $this._hide();
@@ -169,25 +191,6 @@ define(['underscore', 'jquery', 'gemini.support', 'jquery.boiler'], function(_, 
   });
 
   /******************************************
-   * CACHE COMMON OBJECTS
-   ******************************************/
-
-  /**
-   * Window cache
-   *
-   * @name gemini#$window
-   * @type object
-   */
-  window.$window = $.window = $(window);
-  /**
-   * Document cache
-   *
-   * @name gemini#$document
-   * @type object
-   */
-  window.$document = $.document = $(document);
-
-  /******************************************
    * VANILLA HELPERS
    ******************************************/
 
@@ -204,10 +207,11 @@ define(['underscore', 'jquery', 'gemini.support', 'jquery.boiler'], function(_, 
     return (str || document.location.search)
       .replace(/(^\?)/,'')
       .split("&")
-      .map(function(n){
-        return n = n.split("="),this[n[0]] = n[1],this;
-      }
-      .bind({}))[0];
+      .reduce(function(o,n){
+        n=n.split('=');
+        o[n[0]]=n[1];
+        return o;
+      },{});
   };
 
   return $;
