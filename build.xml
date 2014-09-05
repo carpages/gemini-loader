@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <project name="gemini-loader" default="build">
-  <target name="build" depends="clean,prepare,bower,npm,grunt"/>
+  <target name="build" depends="clean,bower,npm,grunt"/>
 
   <target name="clean" description="Cleanup build artifacts">
     <delete dir="${basedir}/bower_components"/>
