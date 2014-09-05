@@ -26,6 +26,11 @@ module.exports = function (grunt) {
         }
       }
     },
+    qunit_junit: {
+      options: {
+        dest: '_build'
+      }
+    },
     jshint: {
       options: {
         reporter: require('jshint-stylish')
@@ -48,5 +53,5 @@ module.exports = function (grunt) {
   });
 
   // Default task.
-  grunt.registerTask('default', ['jshint', 'connect', 'qunit']);
+  grunt.registerTask('default', ['jshint', 'connect', 'qunit_junit', 'qunit']);
 };
