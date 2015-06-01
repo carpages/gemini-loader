@@ -6,7 +6,9 @@
   "main": [
     "gemini.js"
   ],
-  "ignore": [],
+  "ignore": [
+    "test"
+  ],
   "dependencies": {
     "jquery": "1.11.x",
     "jquery-boiler": "0.1.x",
