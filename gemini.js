@@ -27,8 +27,28 @@ This modules accomplishes the following:
   G('#element').css('color','green').trigger('colorChange');
  *
  */
-
-define(['underscore', 'jquery', 'gemini.support', 'jquery.boiler'], function(_, $, support) {
+(function(factory) {
+  if (typeof define === 'function' && define.amd) {
+    // AMD. Register as an anonymous module.
+    define([
+      'underscore',
+      'jquery',
+      'gemini.support',
+      'jquery.boiler'
+    ], factory);
+  } else if (typeof exports === 'object') {
+    // Node/CommonJS
+    module.exports = factory(
+      require('underscore'),
+      require('jquery'),
+      require('gemini-support'),
+      require('jquery-boiler')
+    );
+  } else {
+    // Browser globals
+    factory(G);
+  }
+}(function(_, $, support) {
 
   "use strict";
 
@@ -216,4 +236,4 @@ define(['underscore', 'jquery', 'gemini.support', 'jquery.boiler'], function(_, 
 
   return $;
 
-});
+}));
