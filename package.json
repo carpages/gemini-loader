@@ -1,6 +1,6 @@
 {
   "name": "gemini-loader",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Gemini Loader",
   "author": {
     "name": "Matt Rose",
@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "jquery": "1.11.x",
-    "jquery-boiler": "0.1.x",
+    "jquery-boiler": "0.2.x",
     "underscore": "1.6.x",
     "gemini-support": "~0"
   },
