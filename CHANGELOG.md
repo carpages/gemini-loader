@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## v0.3.1
+
+  - Remove jshint in favour of eslint with custom ruleset
+  - Bump travis-ci node version
+
 ## v0.3.0
 
     - Use looser versioning for jQuery to allow you to specify it at the project level.
