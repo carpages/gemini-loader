@@ -1,3 +1,4 @@
+/* global $window, $document */
 /*
  * Added for Saucelabs
  * https://github.com/axemclion/grunt-saucelabs#test-result-details-with-qunit
@@ -5,42 +6,42 @@
 var log = [];
 var testName;
 
-QUnit.done(function (test_results) {
+QUnit.done( function( testResults ) {
   var tests = [];
-  for(var i = 0, len = log.length; i < len; i++) {
+  for ( var i = 0, len = log.length; i < len; i++ ) {
     var details = log[i];
     tests.push({
-      name: details.name,
-      result: details.result,
+      name:     details.name,
+      result:   details.result,
       expected: details.expected,
-      actual: details.actual,
-      source: details.source
+      actual:   details.actual,
+      source:   details.source
     });
   }
-  test_results.tests = tests;
+  testResults.tests = tests;
 
-  window.global_test_results = test_results;
+  window.global_test_results = testResults;
 });
-QUnit.testStart(function(testDetails){
-  QUnit.log(function(details){
-    if (!details.result) {
+QUnit.testStart( function( testDetails ) {
+  QUnit.log( function( details ) {
+    if ( !details.result ) {
       details.name = testDetails.name;
-      log.push(details);
+      log.push( details );
     }
   });
 });
 
 requirejs.config({
-    baseUrl: '../',
-    paths: {
-      'underscore': 'bower_components/underscore/underscore',
-      'jquery': 'bower_components/jquery/dist/jquery',
-      'jquery.boiler': 'bower_components/jquery-boiler/jquery.boiler',
-      'gemini.support': 'bower_components/gemini-support/gemini.support'
-    }
+  baseUrl: '../',
+  paths:   {
+    'underscore':     'bower_components/underscore/underscore',
+    'jquery':         'bower_components/jquery/dist/jquery',
+    'jquery.boiler':  'bower_components/jquery-boiler/jquery.boiler',
+    'gemini.support': 'bower_components/gemini-support/gemini.support'
+  }
 });
 
-require(['gemini', 'underscore', 'gemini.support'], function(G, underscore, support){
+require([ 'gemini', 'underscore', 'gemini.support' ], function( G, underscore, support ) {
   QUnit.start();
   /*
     ======== A Handy Little QUnit Reference ========
@@ -66,151 +67,151 @@ require(['gemini', 'underscore', 'gemini.support'], function(G, underscore, supp
   /*
    * MAIN TOOLS
    */
-  module('Main Tools');
+  module( 'Main Tools' );
 
-  test('Gemini has functionality of jQuery', function() {
-    expect(1);
+  test( 'Gemini has functionality of jQuery', function() {
+    expect( 1 );
 
-    strictEqual(G, $);
+    strictEqual( G, $ );
   });
 
-  test('Underscore is loaded', function() {
-    expect(1);
+  test( 'Underscore is loaded', function() {
+    expect( 1 );
 
-    strictEqual(G._, underscore);
+    strictEqual( G._, underscore );
   });
 
-  test('Support is loaded', function() {
-    expect(1);
+  test( 'Support is loaded', function() {
+    expect( 1 );
 
-    strictEqual(G.support, support);
+    strictEqual( G.support, support );
   });
 
-  test('Inline specified Gemini data is copied to Gemini object', function() {
-    expect(1);
+  test( 'Inline specified Gemini data is copied to Gemini object', function() {
+    expect( 1 );
 
-    strictEqual(G.D.hello, 'world!');
+    strictEqual( G.D.hello, 'world!' );
   });
 
-  test('Queded javascript runs after Gemini is loaded', function() {
-    expect(2);
+  test( 'Queded javascript runs after Gemini is loaded', function() {
+    expect( 2 );
 
     // Run Queded JS
     G.Q();
 
-    ok(!window.geminiLoadedPre);
-    ok(window.geminiLoadedPost);
+    ok( !window.geminiLoadedPre );
+    ok( window.geminiLoadedPost );
   });
 
-  test('$window and $document is cached', function() {
-    expect(2);
+  test( '$window and $document is cached', function() {
+    expect( 2 );
 
-    deepEqual($document, $(document));
-    deepEqual($window, $(window));
+    deepEqual( $document, $( document ));
+    deepEqual( $window, $( window ));
   });
 
   /*
    * DOM HELPER
    */
-  module('_domHelper', {
+  module( '_domHelper', {
     setup: function() {
-      this.$els = $('#js-fixtures').children();
+      this.$els = $( '#js-fixtures' ).children();
 
-      G._domHelper('_testHelper', function() {
-        $(this).addClass('test-class');
+      G._domHelper( '_testHelper', function() {
+        $( this ).addClass( 'test-class' );
       });
     }
   });
 
-  test('Added to fn namespace', function() {
-    expect(1);
+  test( 'Added to fn namespace', function() {
+    expect( 1 );
 
-    ok(!!G.fn._testHelper);
+    ok( !!G.fn._testHelper );
   });
 
-  test('Chainable', function() {
-    expect(1);
+  test( 'Chainable', function() {
+    expect( 1 );
 
-    strictEqual(this.$els._testHelper(), this.$els);
+    strictEqual( this.$els._testHelper(), this.$els );
   });
 
-  test("Apply's helper to each element", function() {
-    expect(1);
+  test( "Apply's helper to each element", function() {
+    expect( 1 );
 
     var passed = true;
 
-    this.$els.each(function(){
-      if (!$(this).hasClass('test-class')) {
+    this.$els.each( function() {
+      if ( !$( this ).hasClass( 'test-class' )) {
         passed = false;
       }
     });
 
-    ok(passed);
+    ok( passed );
   });
 
   /*
    * DOM Helpers
    */
-  module('DOM Helpers', {
+  module( 'DOM Helpers', {
     setup: function() {
-      this.$el = $('#js-toHide');
+      this.$el = $( '#js-toHide' );
     }
   });
 
-  function isInView(elem) {
-    var docViewTop = $(window).scrollTop();
-    var docViewBottom = docViewTop + $(window).height();
+  function isInView( elem ) {
+    var docViewTop = $( window ).scrollTop();
+    var docViewBottom = docViewTop + $( window ).height();
 
-    var elemTop = $(elem).offset().top;
-    var elemBottom = elemTop + $(elem).height();
+    var elemTop = $( elem ).offset().top;
+    var elemBottom = elemTop + $( elem ).height();
 
-    return ((elemBottom <= docViewBottom) && (elemTop >= docViewTop));
+    return (( elemBottom <= docViewBottom ) && ( elemTop >= docViewTop ));
   }
 
-  test('_hide removes the element', function() {
-    expect(3);
+  test( '_hide removes the element', function() {
+    expect( 3 );
 
-    ok( isInView(this.$el[0]) );
+    ok( isInView( this.$el[0]));
     this.$el._hide();
-    ok( !isInView(this.$el[0]) );
+    ok( !isInView( this.$el[0]));
 
-    notEqual(this.$el.css('display'), 'none'); //Doesn't give display:none
+    notEqual( this.$el.css( 'display' ), 'none' ); // Doesn't give display:none
   });
 
-  test('_show shows the element', function() {
-    expect(2);
+  test( '_show shows the element', function() {
+    expect( 2 );
 
     this.$el._hide();
-    ok( !isInView(this.$el[0]) );
+    ok( !isInView( this.$el[0]));
     this.$el._show();
-    ok( isInView(this.$el[0]) );
+    ok( isInView( this.$el[0]));
   });
 
   /*
    * Fit Helper
    */
-  module('Fit Helper', {
+  module( 'Fit Helper', {
     setup: function() {
-      this.$el = $('#js-fit');
-      this.$wrap = $('#js-fit-context');
+      this.$el = $( '#js-fit' );
+      this.$wrap = $( '#js-fit-context' );
     }
   });
 
-  test('Covers the full window by default', function() {
-    expect(2);
+  test( 'Covers the full window by default', function() {
+    expect( 2 );
 
     this.$el._fit();
 
-    ok( Math.abs( this.$el.outerWidth() - $window.width() ) < 50 );
-    ok( Math.abs( this.$el.outerHeight() - $window.height() ) < 50 );
+    ok( Math.abs( this.$el.outerWidth() - $window.width()) < 50 );
+    ok( Math.abs( this.$el.outerHeight() - $window.height()) < 50 );
   });
 
-  test('Covers sent context', function() {
-    expect(2);
+  test( 'Covers sent context', function() {
+    expect( 2 );
 
-    this.$wrap.width(500);
-    this.$wrap.height(200);
-    this.$el._fit(this.$wrap[0]);
+    this.$wrap.width( 500 );
+    this.$wrap.height( 200 );
+    this.$el._fit( this.$wrap[0]);
 
     ok( Math.abs( this.$el.outerWidth() - 500 ) < 50 );
     ok( Math.abs( this.$el.outerHeight() - 200 ) < 50 );
@@ -219,15 +220,14 @@ require(['gemini', 'underscore', 'gemini.support'], function(G, underscore, supp
   /*
    * Vanilla Helpers
    */
-  module('Vanilla Helpers');
+  module( 'Vanilla Helpers' );
 
-  test('qp returns query parameter object or URL', function() {
-    expect(1);
+  test( 'qp returns query parameter object or URL', function() {
+    expect( 1 );
 
-    deepEqual(G.qp("?a=200&b=300"), {
-      a: "200",
-      b: "300"
+    deepEqual( G.qp( '?a=200&b=300' ), {
+      a: '200',
+      b: '300'
     });
   });
-
 });

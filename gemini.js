@@ -27,51 +27,50 @@ This modules accomplishes the following:
   G('#element').css('color','green').trigger('colorChange');
  *
  */
-(function(factory) {
-  if (typeof define === 'function' && define.amd) {
+( function( factory ) {
+  if ( typeof define === 'function' && define.amd ) {
     // AMD. Register as an anonymous module.
     define([
       'underscore',
       'jquery',
       'gemini.support',
       'jquery.boiler'
-    ], factory);
-  } else if (typeof exports === 'object') {
+    ], factory );
+  } else if ( typeof exports === 'object' ) {
     // Node/CommonJS
     module.exports = factory(
-      require('underscore'),
-      require('jquery'),
-      require('gemini-support'),
-      require('jquery-boiler')
+      require( 'underscore' ),
+      require( 'jquery' ),
+      require( 'gemini-support' ),
+      require( 'jquery-boiler' )
     );
   } else {
     // Browser globals
-    factory(G);
+    factory( G );
   }
-}(function(_, $, support) {
-
-  "use strict";
+}( function( _, $, support ) {
+  'use strict';
 
   var G = window.G || {};
 
-  //Store any data
+  // Store any data
   $.D = G.D || {};
 
-  //Copy jquery
+  // Copy jquery
   G = window.G = $;
 
-  //Store underscore.js
+  // Store underscore.js
   $._ = _;
 
-  //Add function to run queued JS
-  G.Q = function(){
-    if(!G.D._qj) return;
-    _.each(G.D._qj, function(callback){
+  // Add function to run queued JS
+  G.Q = function() {
+    if ( !G.D._qj ) return;
+    _.each( G.D._qj, function( callback ) {
       callback.call();
     });
   };
 
-  //Store reference to support object
+  // Store reference to support object
   G.support = support;
 
   /******************************************
@@ -84,7 +83,7 @@ This modules accomplishes the following:
    * @name gemini#$window
    * @type object
    */
-  window.$window = $(window);
+  window.$window = $( window );
 
   /**
    * Document cache
@@ -92,7 +91,7 @@ This modules accomplishes the following:
    * @name gemini#$document
    * @type object
    */
-  window.$document = $(document);
+  window.$document = $( document );
 
   /******************************************
    * DOM HELPERS
@@ -108,11 +107,11 @@ This modules accomplishes the following:
    * @param {function} helper The helper function
    * @return {type} Array of jQuery objects
   **/
-  $._domHelper = function(namespace, helper){
-    $.fn[namespace] = function(){
+  $._domHelper = function( namespace, helper ) {
+    $.fn[namespace] = function() {
       var args = arguments;
-      return this.each(function(){
-        helper.apply(this, args);
+      return this.each( function() {
+        helper.apply( this, args );
       });
     };
   };
@@ -126,10 +125,8 @@ This modules accomplishes the following:
    * @method
    * @name gemini#_show
   **/
-  $._domHelper('_show', function(){
-
-    $(this).removeClass('hidden');
-
+  $._domHelper( '_show', function() {
+    $( this ).removeClass( 'hidden' );
   });
 
   /**
@@ -141,10 +138,8 @@ This modules accomplishes the following:
    * @method
    * @name gemini#_hide
   **/
-  $._domHelper('_hide', function(){
-
-    $(this).addClass('hidden');
-
+  $._domHelper( '_hide', function() {
+    $( this ).addClass( 'hidden' );
   });
 
   /**
@@ -156,12 +151,10 @@ This modules accomplishes the following:
    * @method
    * @name gemini#_fadeIn
   **/
-  $._domHelper('_fadeIn', function(time){
-
-    $(this).css({opacity: 0})
+  $._domHelper( '_fadeIn', function( time ) {
+    $( this ).css({ opacity: 0 })
            ._show()
-           .fadeTo(time, 1);
-
+           .fadeTo( time, 1 );
   });
 
   /**
@@ -173,14 +166,12 @@ This modules accomplishes the following:
    * @method
    * @name gemini#_fadeOut
   **/
-  $._domHelper('_fadeOut', function(time){
-
-    var $this = $(this);
-    $this.css({opacity: 1})
-      .fadeTo(time, 0, function(){
+  $._domHelper( '_fadeOut', function( time ) {
+    var $this = $( this );
+    $this.css({ opacity: 1 })
+      .fadeTo( time, 0, function() {
         $this._hide();
       });
-
   });
 
   /**
@@ -194,19 +185,19 @@ This modules accomplishes the following:
    * @param {domElement} context The context to fit the item to. Defaults to
    * window
   **/
-  $._domHelper('_fit', function(context){
+  $._domHelper( '_fit', function( context ) {
     var $context;
-    if (_.isUndefined(context)) {
-      $context = $window;
+    if ( _.isUndefined( context )) {
+      $context = $( window );
     } else {
-      $context = $(context);
+      $context = $( context );
     }
 
-    var $this = $(this);
-    if (!$this.hasClass('fit')) return;
+    var $this = $( this );
+    if ( !$this.hasClass( 'fit' )) return;
 
     $this.css({
-      padding: ($context.height()/$context.width() * 100 / 2) + '% 0'
+      padding: ( $context.height() / $context.width() * 100 / 2 ) + '% 0'
     });
   });
 
@@ -223,17 +214,16 @@ This modules accomplishes the following:
    * @return {object} A JSON object of the parameters
   **/
   // https://github.com/youbastard/getQueryParameters
-  $.qp = function(str) {
-    return (str || document.location.search)
-      .replace(/(^\?)/,'')
-      .split("&")
-      .reduce(function(o,n){
-        n=n.split('=');
-        o[n[0]]=n[1];
+  $.qp = function( str ) {
+    return ( str || document.location.search )
+      .replace( /(^\?)/, '' )
+      .split( '&' )
+      .reduce( function( o, n ) {
+        n = n.split( '=' );
+        o[n[0]] = n[1];
         return o;
-      },{});
+      }, {});
   };
 
   return $;
-
 }));
