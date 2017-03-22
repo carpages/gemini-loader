@@ -11,11 +11,11 @@ QUnit.done( function( testResults ) {
   for ( var i = 0, len = log.length; i < len; i++ ) {
     var details = log[i];
     tests.push({
-      name:     details.name,
-      result:   details.result,
+      name: details.name,
+      result: details.result,
       expected: details.expected,
-      actual:   details.actual,
-      source:   details.source
+      actual: details.actual,
+      source: details.source
     });
   }
   testResults.tests = tests;
@@ -33,10 +33,10 @@ QUnit.testStart( function( testDetails ) {
 
 requirejs.config({
   baseUrl: '../',
-  paths:   {
-    'underscore':     'bower_components/underscore/underscore',
-    'jquery':         'bower_components/jquery/dist/jquery',
-    'jquery.boiler':  'bower_components/jquery-boiler/jquery.boiler',
+  paths: {
+    'underscore': 'bower_components/underscore/underscore',
+    'jquery': 'bower_components/jquery/dist/jquery',
+    'jquery.boiler': 'bower_components/jquery-boiler/jquery.boiler',
     'gemini.support': 'bower_components/gemini-support/gemini.support'
   }
 });
