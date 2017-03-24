@@ -3,118 +3,108 @@
  * Added for Saucelabs
  * https://github.com/axemclion/grunt-saucelabs#test-result-details-with-qunit
  */
-var log = [];
-var testName;
+// var log = [];
+// var testName;
+//
+// QUnit.done( function( testResults ) {
+//   var tests = [];
+//   for ( var i = 0, len = log.length; i < len; i++ ) {
+//     var details = log[i];
+//     tests.push({
+//       name: details.name,
+//       result: details.result,
+//       expected: details.expected,
+//       actual: details.actual,
+//       source: details.source
+//     });
+//   }
+//   testResults.tests = tests;
+//
+//   window.global_test_results = testResults;
+// });
+// QUnit.testStart( function( testDetails ) {
+//   QUnit.log( function( details ) {
+//     if ( !details.result ) {
+//       details.name = testDetails.name;
+//       log.push( details );
+//     }
+//   });
+// });
 
-QUnit.done( function( testResults ) {
-  var tests = [];
-  for ( var i = 0, len = log.length; i < len; i++ ) {
-    var details = log[i];
-    tests.push({
-      name: details.name,
-      result: details.result,
-      expected: details.expected,
-      actual: details.actual,
-      source: details.source
-    });
-  }
-  testResults.tests = tests;
-
-  window.global_test_results = testResults;
-});
-QUnit.testStart( function( testDetails ) {
-  QUnit.log( function( details ) {
-    if ( !details.result ) {
-      details.name = testDetails.name;
-      log.push( details );
-    }
-  });
-});
-
-requirejs.config({
-  baseUrl: '../',
-  paths: {
-    'underscore': 'bower_components/underscore/underscore',
-    'jquery': 'bower_components/jquery/dist/jquery',
-    'jquery.boiler': 'bower_components/jquery-boiler/jquery.boiler',
-    'gemini.support': 'bower_components/gemini-support/gemini.support'
-  }
-});
-
-require([ 'gemini', 'underscore', 'gemini.support' ], function( G, underscore, support ) {
+require([ 'qunit', 'gemini', 'underscore', 'gemini.support' ], function( QUnit, G, underscore, support ) {
   QUnit.start();
   /*
     ======== A Handy Little QUnit Reference ========
     http://api.qunitjs.com/
 
     Test methods:
-      module(name, {[setup][ ,teardown]})
-      test(name, callback)
-      expect(numberOfAssertions)
-      stop(increment)
-      start(decrement)
+      QUnit.module(name, {[setup][ ,teardown]})
+      QUnit.test(name, callback)
+      QUnit.assert.expect(numberOfAssertions)
+      QUnit.stop(increment)
+      QUnit.start(decrement)
     Test assertions:
-      ok(value, [message])
-      equal(actual, expected, [message])
-      notEqual(actual, expected, [message])
-      deepEqual(actual, expected, [message])
-      notDeepEqual(actual, expected, [message])
-      strictEqual(actual, expected, [message])
-      notStrictEqual(actual, expected, [message])
-      throws(block, [expected], [message])
+      assert.ok(value, [message])
+      assert.equal(actual, expected, [message])
+      assert.notEqual(actual, expected, [message])
+      assert.assert.deepEqual(actual, expected, [message])
+      assert.notDeepEqual(actual, expected, [message])
+      assert.strictEqual(actual, expected, [message])
+      assert.notStrictEqual(actual, expected, [message])
+      assert.throws(block, [expected], [message])
   */
 
   /*
    * MAIN TOOLS
    */
-  module( 'Main Tools' );
+  QUnit.module( 'Main Tools' );
 
-  test( 'Gemini has functionality of jQuery', function() {
-    expect( 1 );
+  QUnit.test( 'Gemini has functionality of jQuery', function( assert ) {
+    assert.expect( 1 );
 
-    strictEqual( G, $ );
+    assert.strictEqual( G, $ );
   });
 
-  test( 'Underscore is loaded', function() {
-    expect( 1 );
+  QUnit.test( 'Underscore is loaded', function( assert ) {
+    assert.expect( 1 );
 
-    strictEqual( G._, underscore );
+    assert.strictEqual( G._, underscore );
   });
 
-  test( 'Support is loaded', function() {
-    expect( 1 );
+  QUnit.test( 'Support is loaded', function( assert ) {
+    assert.expect( 1 );
 
-    strictEqual( G.support, support );
+    assert.strictEqual( G.support, support );
   });
 
-  test( 'Inline specified Gemini data is copied to Gemini object', function() {
-    expect( 1 );
+  QUnit.test( 'Inline specified Gemini data is copied to Gemini object', function( assert ) {
+    assert.expect( 1 );
 
-    strictEqual( G.D.hello, 'world!' );
+    assert.strictEqual( G.D.hello, 'world!' );
   });
 
-  test( 'Queded javascript runs after Gemini is loaded', function() {
-    expect( 2 );
+  QUnit.test( 'Queued javascript runs after Gemini is loaded', function( assert ) {
+    assert.expect( 2 );
 
     // Run Queded JS
     G.Q();
 
-    ok( !window.geminiLoadedPre );
-    ok( window.geminiLoadedPost );
+    assert.ok( !window.geminiLoadedPre );
+    assert.ok( window.geminiLoadedPost );
   });
 
-  test( '$window and $document is cached', function() {
-    expect( 2 );
+  QUnit.test( '$window and $document is cached', function( assert ) {
+    assert.expect( 2 );
 
-    deepEqual( $document, $( document ));
-    deepEqual( $window, $( window ));
+    assert.deepEqual( $document, $( document ));
+    assert.deepEqual( $window, $( window ));
   });
 
   /*
    * DOM HELPER
    */
-  module( '_domHelper', {
-    setup: function() {
+  QUnit.module( '_domHelper', {
+    beforeEach: function() {
       this.$els = $( '#js-fixtures' ).children();
 
       G._domHelper( '_testHelper', function() {
@@ -123,20 +113,20 @@ require([ 'gemini', 'underscore', 'gemini.support' ], function( G, underscore, s
     }
   });
 
-  test( 'Added to fn namespace', function() {
-    expect( 1 );
+  QUnit.test( 'Added to fn namespace', function( assert ) {
+    assert.expect( 1 );
 
-    ok( !!G.fn._testHelper );
+    assert.ok( !!G.fn._testHelper );
   });
 
-  test( 'Chainable', function() {
-    expect( 1 );
+  QUnit.test( 'Chainable', function( assert ) {
+    assert.expect( 1 );
 
-    strictEqual( this.$els._testHelper(), this.$els );
+    assert.strictEqual( this.$els._testHelper(), this.$els );
   });
 
-  test( "Apply's helper to each element", function() {
-    expect( 1 );
+  QUnit.test( "Apply's helper to each element", function( assert ) {
+    assert.expect( 1 );
 
     var passed = true;
 
@@ -146,14 +136,14 @@ require([ 'gemini', 'underscore', 'gemini.support' ], function( G, underscore, s
       }
     });
 
-    ok( passed );
+    assert.ok( passed );
   });
 
   /*
    * DOM Helpers
    */
-  module( 'DOM Helpers', {
-    setup: function() {
+  QUnit.module( 'DOM Helpers', {
+    beforeEach: function() {
       this.$el = $( '#js-toHide' );
     }
   });
@@ -168,64 +158,64 @@ require([ 'gemini', 'underscore', 'gemini.support' ], function( G, underscore, s
     return (( elemBottom <= docViewBottom ) && ( elemTop >= docViewTop ));
   }
 
-  test( '_hide removes the element', function() {
-    expect( 3 );
+  QUnit.test( '_hide removes the element', function( assert ) {
+    assert.expect( 3 );
 
-    ok( isInView( this.$el[0]));
+    assert.ok( isInView( this.$el[0]));
     this.$el._hide();
-    ok( !isInView( this.$el[0]));
+    assert.ok( !isInView( this.$el[0]));
 
-    notEqual( this.$el.css( 'display' ), 'none' ); // Doesn't give display:none
+    assert.notEqual( this.$el.css( 'display' ), 'none' ); // Doesn't give display:none
   });
 
-  test( '_show shows the element', function() {
-    expect( 2 );
+  QUnit.test( '_show shows the element', function( assert ) {
+    assert.expect( 2 );
 
     this.$el._hide();
-    ok( !isInView( this.$el[0]));
+    assert.ok( !isInView( this.$el[0]));
     this.$el._show();
-    ok( isInView( this.$el[0]));
+    assert.ok( isInView( this.$el[0]));
   });
 
   /*
    * Fit Helper
    */
-  module( 'Fit Helper', {
-    setup: function() {
+  QUnit.module( 'Fit Helper', {
+    beforeEach: function() {
       this.$el = $( '#js-fit' );
       this.$wrap = $( '#js-fit-context' );
     }
   });
 
-  test( 'Covers the full window by default', function() {
-    expect( 2 );
+  QUnit.test( 'Covers the full window by default', function( assert ) {
+    assert.expect( 2 );
 
     this.$el._fit();
 
-    ok( Math.abs( this.$el.outerWidth() - $window.width()) < 50 );
-    ok( Math.abs( this.$el.outerHeight() - $window.height()) < 50 );
+    assert.ok( Math.abs( this.$el.outerWidth() - $window.width()) < 50 );
+    assert.ok( Math.abs( this.$el.outerHeight() - $window.height()) < 50 );
   });
 
-  test( 'Covers sent context', function() {
-    expect( 2 );
+  QUnit.test( 'Covers sent context', function( assert ) {
+    assert.expect( 2 );
 
     this.$wrap.width( 500 );
     this.$wrap.height( 200 );
     this.$el._fit( this.$wrap[0]);
 
-    ok( Math.abs( this.$el.outerWidth() - 500 ) < 50 );
-    ok( Math.abs( this.$el.outerHeight() - 200 ) < 50 );
+    assert.ok( Math.abs( this.$el.outerWidth() - 500 ) < 50 );
+    assert.ok( Math.abs( this.$el.outerHeight() - 200 ) < 50 );
   });
 
   /*
    * Vanilla Helpers
    */
-  module( 'Vanilla Helpers' );
+  QUnit.module( 'Vanilla Helpers' );
 
-  test( 'qp returns query parameter object or URL', function() {
-    expect( 1 );
+  QUnit.test( 'qp returns query parameter object or URL', function( assert ) {
+    assert.expect( 1 );
 
-    deepEqual( G.qp( '?a=200&b=300' ), {
+    assert.deepEqual( G.qp( '?a=200&b=300' ), {
       a: '200',
       b: '300'
     });

@@ -19,7 +19,11 @@ module.exports = function( grunt ) {
     qunit: {
       all: {
         options: {
-          urls: [ 'http://localhost:9000/test/<%= pkg.name %>.html' ],
+          inject: [
+            './test/qunit.config.js',
+            './node_modules/grunt-contrib-qunit/phantomjs/bridge.js'
+          ],
+          urls: [ 'http://localhost:9000/test/<%= pkg.name %>.test.html' ],
           page: {
             viewportSize: { width: 1280, height: 800 }
           }
@@ -43,7 +47,7 @@ module.exports = function( grunt ) {
     'saucelabs-qunit': {
       all: {
         options: {
-          urls: [ 'http://localhost:9000/test/<%= pkg.name %>.html' ],
+          urls: [ 'http://localhost:9000/test/<%= pkg.name %>.test.html' ],
           build: process.env.TRAVIS_JOB_ID,
           browsers: [
             // iOS
