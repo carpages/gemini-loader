@@ -10,10 +10,10 @@
     "test"
   ],
   "dependencies": {
-    "jquery": "1.11.x",
-    "jquery-boiler": "0.1.x",
-    "underscore": "1.6.x",
-    "gemini-support": "~0"
+    "gemini-support": "~0.3",
+    "jquery": "~3",
+    "jquery-boiler": "~0.2",
+    "underscore": "~1"
   },
   "devDependencies": {
     "requirejs": "~2",
