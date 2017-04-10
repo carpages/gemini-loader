@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## v0.4.0 [ WIP ]
+
+  - Bump jQuery version
+  - Bump jquery-boiler version
+
 ## v0.3.2
 
   - Use Carpages eslint config
