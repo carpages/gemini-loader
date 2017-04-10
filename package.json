@@ -15,7 +15,7 @@
   "dependencies": {
     "gemini-support": "~0.3",
     "jquery": "~3",
-    "jquery-boiler": "~0.2",
+    "jquery-boiler": "carpages/jquery-boiler",
     "underscore": "~1"
   },
   "devDependencies": {
