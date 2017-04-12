@@ -7,6 +7,11 @@ before_script:
   - npm install -g grunt-cli bower
   - bower install
 
+cache:
+  yarn: true
+  directories:
+    - node_modules
+
 script: grunt ci --verbose
 
 env:
