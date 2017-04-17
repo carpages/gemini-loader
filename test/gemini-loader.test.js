@@ -1,38 +1,37 @@
 /* global $window, $document */
-/*
- * Added for Saucelabs
- * https://github.com/axemclion/grunt-saucelabs#test-result-details-with-qunit
- */
-// var log = [];
-// var testName;
-//
-// QUnit.done( function( testResults ) {
-//   var tests = [];
-//   for ( var i = 0, len = log.length; i < len; i++ ) {
-//     var details = log[i];
-//     tests.push({
-//       name: details.name,
-//       result: details.result,
-//       expected: details.expected,
-//       actual: details.actual,
-//       source: details.source
-//     });
-//   }
-//   testResults.tests = tests;
-//
-//   window.global_test_results = testResults;
-// });
-// QUnit.testStart( function( testDetails ) {
-//   QUnit.log( function( details ) {
-//     if ( !details.result ) {
-//       details.name = testDetails.name;
-//       log.push( details );
-//     }
-//   });
-// });
-
 require([ 'qunit', 'gemini', 'underscore', 'gemini.support' ], function( QUnit, G, underscore, support ) {
   QUnit.start();
+
+  // Necessary for SauceLab testing
+  var log = [];
+  var testName;
+
+  QUnit.done( function( testResults ) {
+    var tests = [];
+    for ( var i = 0, len = log.length; i < len; i++ ) {
+      var details = log[i];
+      tests.push({
+        name: details.name,
+        result: details.result,
+        expected: details.expected,
+        actual: details.actual,
+        source: details.source
+      });
+    }
+    testResults.tests = tests;
+
+    window.global_test_results = testResults;
+  });
+
+  QUnit.testStart( function( testDetails ) {
+    QUnit.log( function( details ) {
+      if ( !details.result ) {
+        details.name = testDetails.name;
+        log.push( details );
+      }
+    });
+  });
+
   /*
     ======== A Handy Little QUnit Reference ========
     http://api.qunitjs.com/
@@ -149,8 +148,8 @@ require([ 'qunit', 'gemini', 'underscore', 'gemini.support' ], function( QUnit, 
   });
 
   function isInView( elem ) {
-    var docViewTop = $( window ).scrollTop();
-    var docViewBottom = docViewTop + $( window ).height();
+    var docViewTop = $( document ).scrollTop();
+    var docViewBottom = docViewTop + $( document ).height();
 
     var elemTop = $( elem ).offset().top;
     var elemBottom = elemTop + $( elem ).height();

@@ -47,51 +47,30 @@ module.exports = function( grunt ) {
     'saucelabs-qunit': {
       all: {
         options: {
-          urls: [ 'http://localhost:9000/test/<%= pkg.name %>.test.html' ],
-          build: process.env.TRAVIS_JOB_ID,
           testname: '<%= pkg.name %>',
+          urls: [ 'http://localhost:9000/test/<%= pkg.name %>.test.html' ],
+          build: process.env.TRAVIS_JOB_ID || 'dev-grunt-local:' + Date.now(),
+          tags: [ 'v<%= pkg.version %>', 'grunt-saucelabs' ],
+          throttled: 5,
           browsers: [
             // Mobile
-            {
-              browserName: 'iphone'
-            }, {
-              browserName: 'android'
-            },
+            { browserName: 'iphone' },
+            { browserName: 'android' },
 
             // Safari
-            {
-              browserName: 'safari',
-              version: '10'
-            }, {
-              browserName: 'safari',
-              version: '9'
-            }, {
-              browserName: 'safari',
-              version: '8'
-            },
+            { browserName: 'safari', version: '10' },
+            { browserName: 'safari', version: '9' },
+            { browserName: 'safari', version: '8' },
 
             // Firefox
-            {
-              platform: 'mac 10.12',
-              browserName: 'firefox',
-              version: 'latest'
-            },
+            { platform: 'mac 10.12', browserName: 'firefox', version: 'latest' },
 
             // Chrome
-            {
-              platform: 'mac 10.12',
-              browserName: 'chrome',
-              version: 'latest'
-            },
+            { platform: 'mac 10.12', browserName: 'chrome', version: 'latest' },
 
             // IE
-            {
-              browserName: 'internet explorer',
-              version: 'latest'
-            }, {
-              browserName: 'internet explorer',
-              version: '10'
-            }
+            { browserName: 'internet explorer', version: 'latest' },
+            { browserName: 'internet explorer', version: '10' }
           ]
         }
       }
