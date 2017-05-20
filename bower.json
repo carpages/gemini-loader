@@ -1,7 +1,10 @@
 {
   "name": "gemini-loader",
   "authors": [
-    {"name": "Matt Rose", "email": "matt@mattrose.ca"}
+    {
+      "name": "Matt Rose",
+      "email": "matt@mattrose.ca"
+    }
   ],
   "main": [
     "gemini.js"
@@ -10,7 +13,7 @@
     "test"
   ],
   "dependencies": {
-    "jquery": "1.11.x",
+    "jquery": ">=1.12",
     "jquery-boiler": "0.1.x",
     "underscore": "1.6.x",
     "gemini-support": "~0"
