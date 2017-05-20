@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## v0.3.4
+
+  - Be less specific in jQuery version declaration
+
 ## v0.3.3
 
   - Cherry pick Qunit test fixes
