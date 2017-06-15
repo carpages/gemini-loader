@@ -10,10 +10,10 @@
     "test"
   ],
   "dependencies": {
-    "gemini-support": "~0.3",
-    "jquery": "~3",
+    "gemini-support": "0.3.x",
+    "jquery": ">= 2",
     "jquery-boiler": "carpages/jquery-boiler",
-    "underscore": "~1"
+    "underscore": ">= 1.8"
   },
   "devDependencies": {
     "requirejs": "~2",
