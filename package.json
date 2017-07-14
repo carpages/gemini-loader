@@ -1,6 +1,6 @@
 {
   "name": "gemini-loader",
-  "version": "0.4.1",
+  "version": "0.4.3",
   "description": "Gemini Loader",
   "author": {
     "name": "Matt Rose",
@@ -13,9 +13,9 @@
     "url": "https://github.com/carpages/gemini-loader"
   },
   "dependencies": {
+    "@carpages/jquery-boiler": "0.4.x",
     "gemini-support": "0.3.x",
     "jquery": ">= 2",
-    "@carpages/jquery-boiler": "0.4.x",
     "underscore": ">= 1.8"
   },
   "devDependencies": {
