@@ -1,5 +1,10 @@
 /* global $window, $document */
-require([ 'qunit', 'gemini', 'underscore', 'gemini.support' ], function( QUnit, G, underscore, support ) {
+require([ 'qunit', 'gemini', 'underscore', 'gemini.support' ], function(
+  QUnit,
+  G,
+  underscore,
+  support
+) {
   QUnit.start();
 
   // Necessary for SauceLab testing
@@ -76,11 +81,14 @@ require([ 'qunit', 'gemini', 'underscore', 'gemini.support' ], function( QUnit, 
     assert.strictEqual( G.support, support );
   });
 
-  QUnit.test( 'Inline specified Gemini data is copied to Gemini object', function( assert ) {
-    assert.expect( 1 );
+  QUnit.test(
+    'Inline specified Gemini data is copied to Gemini object',
+    function( assert ) {
+      assert.expect( 1 );
 
-    assert.strictEqual( G.D.hello, 'world!' );
-  });
+      assert.strictEqual( G.D.hello, 'world!' );
+    }
+  );
 
   QUnit.test( 'Queued javascript runs after Gemini is loaded', function( assert ) {
     assert.expect( 2 );
@@ -154,7 +162,7 @@ require([ 'qunit', 'gemini', 'underscore', 'gemini.support' ], function( QUnit, 
     var elemTop = $( elem ).offset().top;
     var elemBottom = elemTop + $( elem ).height();
 
-    return (( elemBottom <= docViewBottom ) && ( elemTop >= docViewTop ));
+    return elemBottom <= docViewBottom && elemTop >= docViewTop;
   }
 
   QUnit.test( '_hide removes the element', function( assert ) {

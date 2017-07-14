@@ -30,12 +30,10 @@ This modules accomplishes the following:
 ( function( factory ) {
   if ( typeof define === 'function' && define.amd ) {
     // AMD. Register as an anonymous module.
-    define([
-      'underscore',
-      'jquery',
-      'gemini.support',
-      'jquery.boiler'
-    ], factory );
+    define(
+      [ 'underscore', 'jquery', 'gemini.support', 'jquery.boiler' ],
+      factory
+    );
   } else if ( typeof exports === 'object' ) {
     // Node/CommonJS
     module.exports = factory(
@@ -48,7 +46,7 @@ This modules accomplishes the following:
     // Browser globals
     factory( G );
   }
-}( function( _, $, support ) {
+})( function( _, $, support ) {
   'use strict';
 
   var G = window.G || {};
@@ -152,9 +150,7 @@ This modules accomplishes the following:
    * @name gemini#_fadeIn
   **/
   $._domHelper( '_fadeIn', function( time ) {
-    $( this ).css({ opacity: 0 })
-           ._show()
-           .fadeTo( time, 1 );
+    $( this ).css({ opacity: 0 })._show().fadeTo( time, 1 );
   });
 
   /**
@@ -168,10 +164,9 @@ This modules accomplishes the following:
   **/
   $._domHelper( '_fadeOut', function( time ) {
     var $this = $( this );
-    $this.css({ opacity: 1 })
-      .fadeTo( time, 0, function() {
-        $this._hide();
-      });
+    $this.css({ opacity: 1 }).fadeTo( time, 0, function() {
+      $this._hide();
+    });
   });
 
   /**
@@ -197,7 +192,7 @@ This modules accomplishes the following:
     if ( !$this.hasClass( 'fit' )) return;
 
     $this.css({
-      padding: ( $context.height() / $context.width() * 100 / 2 ) + '% 0'
+      padding: $context.height() / $context.width() * 100 / 2 + '% 0'
     });
   });
 
@@ -226,4 +221,4 @@ This modules accomplishes the following:
   };
 
   return $;
-}));
+});

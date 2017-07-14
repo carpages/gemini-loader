@@ -1,73 +1,81 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Gemini Loader Test</title>
 
-    <!-- Load local jQuery. -->
-    <script src="../bower_components/jquery/dist/jquery.js"></script>
+<head>
+  <meta charset="utf-8">
+  <title>Gemini Loader Test</title>
 
-    <!-- Load CSS. -->
-    <link rel="stylesheet" href="../bower_components/qunit/qunit/qunit.css" media="screen">
+  <!-- Load local jQuery. -->
+  <script src="../bower_components/jquery/dist/jquery.js"></script>
 
-    <!-- Load RequireJS. -->
-    <script src="../bower_components/requirejs/require.js"></script>
+  <!-- Load CSS. -->
+  <link rel="stylesheet" href="../bower_components/qunit/qunit/qunit.css" media="screen">
 
-    <!-- Load tests. -->
-    <script src="qunit.config.js"></script>
-    <script src="gemini-loader.test.js"></script>
+  <!-- Load RequireJS. -->
+  <script src="../bower_components/requirejs/require.js"></script>
 
-    <!--
+  <!-- Load tests. -->
+  <script src="qunit.config.js"></script>
+  <script src="gemini-loader.test.js"></script>
+
+  <!--
       Removing access to jQuery and $. But it'll still be available as _$,
       if you REALLY want to mess around with jQuery in the console. REMEMBER WE
       ARE TESTING A PLUGIN HERE, THIS HELPS ENSURE BEST PRACTICES. REALLY.
     -->
-    <script>window._$ = jQuery.noConflict(true);</script>
+  <script>
+    window._$ = jQuery.noConflict(true);
+  </script>
 
-    <script>window.G={D:{_qj:[]}};G.Q=function(k){G.D._qj.push(k)};//0.1.0</script>
+  <script>
+    window.G = { D: { _qj: [] } }; G.Q = function (k) { G.D._qj.push(k) };//0.1.0
+  </script>
 
-    <style>
-      .hidden {
-        position: absolute !important;
-        left: -999% !important;
-        top: -999% !important;
-      }
-      .fit {
-        display: block;
-        width: 100%;
-        position: relative;
-        overflow: hidden;
-      }
-    </style>
-  </head>
-  <body>
+  <style>
+    .hidden {
+      position: absolute !important;
+      left: -999% !important;
+      top: -999% !important;
+    }
 
-    <script>
-      // For esting Inline Data transfer
-      G.D.hello = 'world!';
+    .fit {
+      display: block;
+      width: 100%;
+      position: relative;
+      overflow: hidden;
+    }
+  </style>
+</head>
 
-      // For testing queued javascript
-      window.geminiLoadedPre = jQuery == G;
+<body>
 
-      G.Q(function(){
-        window.geminiLoadedPost = jQuery == G;
-      });
-    </script>
+  <script>
+    // For esting Inline Data transfer
+    G.D.hello = 'world!';
 
-    <div id="qunit"></div>
+    // For testing queued javascript
+    window.geminiLoadedPre = jQuery == G;
 
-    <div id="js-fixture">
-      <span>lame test markup</span>
-      <span>normal test markup</span>
-      <span>awesome test markup</span>
-    </div>
+    G.Q(function () {
+      window.geminiLoadedPost = jQuery == G;
+    });
+  </script>
 
-    <div id="js-toHide">
-      Hide me
-    </div>
+  <div id="qunit"></div>
 
-    <div id="js-fit-context">
-      <div id="js-fit" class="fit"></div>
-    </div>
-  </body>
+  <div id="js-fixture">
+    <span>lame test markup</span>
+    <span>normal test markup</span>
+    <span>awesome test markup</span>
+  </div>
+
+  <div id="js-toHide">
+    Hide me
+  </div>
+
+  <div id="js-fit-context">
+    <div id="js-fit" class="fit"></div>
+  </div>
+</body>
+
 </html>
