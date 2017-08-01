@@ -16,7 +16,7 @@
     "@carpages/jquery-boiler": "0.4.x",
     "gemini-support": "0.3.x",
     "jquery": ">= 2",
-    "underscore": ">= 1.8"
+    "underscore": ">= 1.6"
   },
   "devDependencies": {
     "eslint": "^4.2.0",
