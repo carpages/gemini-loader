@@ -4,6 +4,7 @@
 
   - Bump jQuery version
   - Bump jquery-boiler version
+  - Scope jquery-boiler to @carpages npm org version
 
 ## v0.3.2
 
