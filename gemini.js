@@ -40,7 +40,7 @@ This modules accomplishes the following:
       require( 'underscore' ),
       require( 'jquery' ),
       require( 'gemini-support' ),
-      require( 'jquery-boiler' )
+      require( '@carpages/jquery-boiler' )
     );
   } else {
     // Browser globals
