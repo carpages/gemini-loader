@@ -1,3 +1,3 @@
 module.exports = {
-  extends: "carpages"
+  extends: ['carpages', 'carpages/rules/dsp']
 };
