@@ -1,25 +1,16 @@
 {
   "name": "gemini-loader",
-  "authors": [
-    {
-      "name": "Matt Rose",
-      "email": "matt@mattrose.ca"
-    }
-  ],
-  "main": [
-    "gemini.js"
-  ],
-  "ignore": [
-    "test"
-  ],
+  "authors": [{ "name": "Matt Rose", "email": "matt@mattrose.ca" }],
+  "main": ["gemini.js"],
+  "ignore": ["test"],
   "dependencies": {
-    "jquery": ">=1.12",
-    "jquery-boiler": "0.1.x",
-    "underscore": "1.6.x",
-    "gemini-support": "~0"
+    "gemini-support": "0.3.x",
+    "jquery": "3.x",
+    "jquery-boiler": "carpages/jquery-boiler",
+    "underscore": "1.x"
   },
   "devDependencies": {
-    "requirejs": "~2",
-    "qunit": "~2"
+    "requirejs": "2.x",
+    "qunit": "2.x"
   }
 }

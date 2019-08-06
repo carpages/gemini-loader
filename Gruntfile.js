@@ -10,19 +10,18 @@ module.exports = function( grunt ) {
   grunt.initConfig({
     // Metadata.
     pkg: grunt.file.readJSON( 'package.json' ),
-    banner: '/*! <%= pkg.name %> - v<%= pkg.version %> - ' +
+    banner:
+      '/*! <%= pkg.name %> - v<%= pkg.version %> - ' +
       '<%= grunt.template.today("yyyy-mm-dd") %>\n' +
       '<%= pkg.homepage ? "* " + pkg.homepage + "\\n" : "" %>' +
       '* Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>;' +
       ' Licensed MIT */\n',
+
     // Task configuration.
     qunit: {
       all: {
         options: {
-          inject: [
-            './test/qunit.config.js',
-            './node_modules/grunt-contrib-qunit/phantomjs/bridge.js'
-          ],
+          inject: [ './test/qunit.config.js', './node_modules/grunt-contrib-qunit/chrome/bridge.js' ],
           urls: [ 'http://localhost:9000/test/<%= pkg.name %>.test.html' ],
           page: {
             viewportSize: { width: 1280, height: 800 }
@@ -30,12 +29,11 @@ module.exports = function( grunt ) {
         }
       }
     },
+
     eslint: {
-      options: {
-        configFile: '.eslintrc'
-      },
       target: [ 'gemini.js' ]
     },
+
     connect: {
       server: {
         options: {
@@ -44,99 +42,52 @@ module.exports = function( grunt ) {
         }
       }
     },
+
     'saucelabs-qunit': {
       all: {
         options: {
+          testname: '<%= pkg.name %>',
           urls: [ 'http://localhost:9000/test/<%= pkg.name %>.test.html' ],
-          build: process.env.TRAVIS_JOB_ID,
+          build: process.env.TRAVIS_JOB_ID || 'dev-grunt-local:' + Date.now(),
+          tags: [ 'v<%= pkg.version %>', 'grunt-saucelabs' ],
+          throttled: 5,
           browsers: [
-            // iOS
+            // Mobile
+            { browserName: 'iphone' },
+            { browserName: 'android' },
+
+            // Safari
+            { browserName: 'safari', version: '10' },
+            { browserName: 'safari', version: '9' },
+            { browserName: 'safari', version: '8' },
+
+            // Firefox
             {
-              browserName: 'iphone',
-              platform: 'OS X 10.9',
-              version: '7.1'
-            },
-            {
-              browserName: 'ipad',
-              platform: 'OS X 10.9',
-              version: '7.1'
-            },
-            // Android
-            {
-              browserName: 'android',
-              platform: 'Linux',
-              version: '4.3'
-            },
-            // OS X
-            {
-              browserName: 'safari',
-              platform: 'OS X 10.9',
-              version: '7'
-            },
-            {
-              browserName: 'safari',
-              platform: 'OS X 10.8',
-              version: '6'
-            },
-            {
+              platform: 'mac 10.12',
               browserName: 'firefox',
-              platform: 'OS X 10.9',
-              version: '28'
+              version: 'latest'
             },
-            // Windows
-            {
-              browserName: 'internet explorer',
-              platform: 'Windows 8.1',
-              version: '11'
-            },
-            {
-              browserName: 'internet explorer',
-              platform: 'Windows 8',
-              version: '10'
-            },
-            {
-              browserName: 'internet explorer',
-              platform: 'Windows 7',
-              version: '11'
-            },
-            {
-              browserName: 'internet explorer',
-              platform: 'Windows 7',
-              version: '10'
-            },
-            {
-              browserName: 'internet explorer',
-              platform: 'Windows 7',
-              version: '9'
-            },
-            {
-              browserName: 'internet explorer',
-              platform: 'Windows 7',
-              version: '8'
-            },
-            {
-              browserName: 'firefox',
-              platform: 'Windows 7',
-              version: '29'
-            },
-            {
-              browserName: 'chrome',
-              platform: 'Windows 7',
-              version: '34'
-            },
-            // Linux
-            {
-              browserName: 'firefox',
-              platform: 'Linux',
-              version: '29'
-            }
+
+            // Chrome
+            { platform: 'mac 10.12', browserName: 'chrome', version: 'latest' },
+
+            // IE
+            { browserName: 'internet explorer', version: 'latest' },
+            { browserName: 'internet explorer', version: '10' }
           ]
         }
       }
     }
   });
 
-  // Default task.
-  grunt.registerTask( 'default', [ 'eslint', 'connect', 'qunit' ]);
-  grunt.registerTask( 'ci', [ 'default'/*, 'saucelabs-qunit' */ ]);
+  // Default Task
+  grunt.registerTask( 'default', [ 'eslint', 'test:qunit' ]);
+
+  // Testing Tasks
+  grunt.registerTask( 'test:all', [ 'connect', 'qunit', 'saucelabs-qunit' ]);
+  grunt.registerTask( 'test:qunit', [ 'connect', 'qunit' ]);
+  grunt.registerTask( 'test:saucelabs', [ 'connect', 'saucelabs-qunit' ]);
+
+  // CI Task
+  grunt.registerTask( 'ci', [ 'eslint', 'test:all' ]);
 };

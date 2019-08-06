@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
     <title>Gemini Loader Test</title>
 
     <!-- Load local jQuery. -->
     <script src="../bower_components/jquery/dist/jquery.js"></script>
 
     <!-- Load CSS. -->
-    <link rel="stylesheet" href="../bower_components/qunit/qunit/qunit.css" media="screen">
+    <link rel="stylesheet" href="../bower_components/qunit/qunit/qunit.css" media="screen" />
 
     <!-- Load RequireJS. -->
     <script src="../bower_components/requirejs/require.js"></script>
@@ -22,9 +22,16 @@
       if you REALLY want to mess around with jQuery in the console. REMEMBER WE
       ARE TESTING A PLUGIN HERE, THIS HELPS ENSURE BEST PRACTICES. REALLY.
     -->
-    <script>window._$ = jQuery.noConflict(true);</script>
+    <script>
+      window._$ = jQuery.noConflict(true);
+    </script>
 
-    <script>window.G={D:{_qj:[]}};G.Q=function(k){G.D._qj.push(k)};//0.1.0</script>
+    <script>
+      window.G = { D: { _qj: [] } };
+      G.Q = function(k) {
+        G.D._qj.push(k);
+      }; //0.1.0
+    </script>
 
     <style>
       .hidden {
@@ -32,6 +39,7 @@
         left: -999% !important;
         top: -999% !important;
       }
+
       .fit {
         display: block;
         width: 100%;
@@ -40,8 +48,8 @@
       }
     </style>
   </head>
-  <body>
 
+  <body>
     <script>
       // For esting Inline Data transfer
       G.D.hello = 'world!';
@@ -49,7 +57,7 @@
       // For testing queued javascript
       window.geminiLoadedPre = jQuery == G;
 
-      G.Q(function(){
+      G.Q(function() {
         window.geminiLoadedPost = jQuery == G;
       });
     </script>

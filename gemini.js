@@ -30,37 +30,29 @@ This modules accomplishes the following:
 ( function( factory ) {
   if ( typeof define === 'function' && define.amd ) {
     // AMD. Register as an anonymous module.
-    define([
-      'underscore',
-      'jquery',
-      'gemini.support',
-      'jquery.boiler'
-    ], factory );
+    define([ 'underscore', 'jquery', 'gemini.support', 'jquery.boiler' ], factory );
   } else if ( typeof exports === 'object' ) {
     // Node/CommonJS
     module.exports = factory(
       require( 'underscore' ),
       require( 'jquery' ),
       require( 'gemini-support' ),
-      require( 'jquery-boiler' )
+      require( '@carpages/jquery-boiler' )
     );
   } else {
     // Browser globals
     factory( G );
   }
-}( function( _, $, support ) {
+})( function( _, $, support ) {
   'use strict';
 
   var G = window.G || {};
 
   // Store any data
-  $.D = G.D || {};
-
-  // Copy jquery
-  G = window.G = $;
+  G.D = G.D || {};
 
   // Store underscore.js
-  $._ = _;
+  G._ = _;
 
   // Add function to run queued JS
   G.Q = function() {
@@ -72,6 +64,9 @@ This modules accomplishes the following:
 
   // Store reference to support object
   G.support = support;
+
+  // Copy jquery
+  G = window.G = $.extend( $, G );
 
   /******************************************
    * CACHE COMMON OBJECTS
@@ -106,7 +101,7 @@ This modules accomplishes the following:
    * @param {string} namespace The namespace of the helper (should start with underscore)
    * @param {function} helper The helper function
    * @return {type} Array of jQuery objects
-  **/
+   **/
   $._domHelper = function( namespace, helper ) {
     $.fn[namespace] = function() {
       var args = arguments;
@@ -124,7 +119,7 @@ This modules accomplishes the following:
    * @private
    * @method
    * @name gemini#_show
-  **/
+   **/
   $._domHelper( '_show', function() {
     $( this ).removeClass( 'hidden' );
   });
@@ -137,7 +132,7 @@ This modules accomplishes the following:
    * @private
    * @method
    * @name gemini#_hide
-  **/
+   **/
   $._domHelper( '_hide', function() {
     $( this ).addClass( 'hidden' );
   });
@@ -150,11 +145,12 @@ This modules accomplishes the following:
    * @private
    * @method
    * @name gemini#_fadeIn
-  **/
+   **/
   $._domHelper( '_fadeIn', function( time ) {
-    $( this ).css({ opacity: 0 })
-           ._show()
-           .fadeTo( time, 1 );
+    $( this )
+      .css({ opacity: 0 })
+      ._show()
+      .fadeTo( time, 1 );
   });
 
   /**
@@ -165,13 +161,12 @@ This modules accomplishes the following:
    * @private
    * @method
    * @name gemini#_fadeOut
-  **/
+   **/
   $._domHelper( '_fadeOut', function( time ) {
     var $this = $( this );
-    $this.css({ opacity: 1 })
-      .fadeTo( time, 0, function() {
-        $this._hide();
-      });
+    $this.css({ opacity: 1 }).fadeTo( time, 0, function() {
+      $this._hide();
+    });
   });
 
   /**
@@ -184,7 +179,7 @@ This modules accomplishes the following:
    * @name gemini#_fit
    * @param {domElement} context The context to fit the item to. Defaults to
    * window
-  **/
+   **/
   $._domHelper( '_fit', function( context ) {
     var $context;
     if ( _.isUndefined( context )) {
@@ -197,7 +192,7 @@ This modules accomplishes the following:
     if ( !$this.hasClass( 'fit' )) return;
 
     $this.css({
-      padding: ( $context.height() / $context.width() * 100 / 2 ) + '% 0'
+      padding: (( $context.height() / $context.width()) * 100 ) / 2 + '% 0'
     });
   });
 
@@ -212,7 +207,7 @@ This modules accomplishes the following:
    * @name gemini#qp
    * @param {string} str The URL to extract (optional)
    * @return {object} A JSON object of the parameters
-  **/
+   **/
   // https://github.com/youbastard/getQueryParameters
   $.qp = function( str ) {
     return ( str || document.location.search )
@@ -226,4 +221,4 @@ This modules accomplishes the following:
   };
 
   return $;
-}));
+});

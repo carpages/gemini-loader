@@ -1,6 +1,6 @@
 {
   "name": "gemini-loader",
-  "version": "0.3.4",
+  "version": "0.4.5",
   "description": "Gemini Loader",
   "author": {
     "name": "Matt Rose",
@@ -13,21 +13,22 @@
     "url": "https://github.com/carpages/gemini-loader"
   },
   "dependencies": {
-    "gemini-support": "^0.3.1",
-    "jquery": "^3.2.1",
-    "jquery-boiler": "0.2.x",
-    "underscore": "^1.8.3"
+    "@carpages/jquery-boiler": "0.4.x",
+    "gemini-support": "0.3.x",
+    "jquery": "3.x",
+    "underscore": "1.x"
   },
   "devDependencies": {
-    "eslint": "^3.18.0",
-    "eslint-config-carpages": "^0.2.0",
-    "eslint-plugin-qunit": "^2.4.0",
-    "grunt": "^1.0.1",
-    "grunt-contrib-connect": "^1.0.2",
-    "grunt-contrib-qunit": "^1.3.0",
-    "grunt-eslint": "^19.0.0",
-    "load-grunt-tasks": "^3.5.2",
-    "time-grunt": "^1.4.0"
+    "eslint": "5.16.x",
+    "eslint-config-carpages": "3.x",
+    "eslint-plugin-qunit": "^4.0.0",
+    "grunt": "~1.0.4",
+    "grunt-contrib-connect": "~2.0.0",
+    "grunt-contrib-qunit": "~3.1.0",
+    "grunt-eslint": "~22.0.0",
+    "grunt-saucelabs": "~9.0.1",
+    "load-grunt-tasks": "~5.1.0",
+    "time-grunt": "~2.0.0"
   },
   "license": "MIT"
 }

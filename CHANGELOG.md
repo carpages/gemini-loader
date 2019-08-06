@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## v0.4
+
+  - Bump jQuery version
+  - Bump jquery-boiler version
+  - Scope jquery-boiler to @carpages npm org version
+
 ## v0.3.4
 
   - Be less specific in jQuery version declaration
