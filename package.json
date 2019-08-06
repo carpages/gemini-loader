@@ -17,9 +17,6 @@
     "gemini-support": "0.3.x",
     "underscore": "1.x"
   },
-  "peerDependencies": {
-    "jquery": "3.x"
-  },
   "devDependencies": {
     "eslint": "5.16.x",
     "eslint-config-carpages": "3.x",
