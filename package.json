@@ -15,8 +15,10 @@
   "dependencies": {
     "@carpages/jquery-boiler": "0.4.x",
     "gemini-support": "0.3.x",
-    "jquery": "3.x",
     "underscore": "1.x"
+  },
+  "peerDependencies": {
+    "jquery": "3.x"
   },
   "devDependencies": {
     "eslint": "5.16.x",

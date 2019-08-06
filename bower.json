@@ -5,7 +5,6 @@
   "ignore": ["test"],
   "dependencies": {
     "gemini-support": "0.3.x",
-    "jquery": "3.x",
     "jquery-boiler": "carpages/jquery-boiler",
     "underscore": "1.x"
   },

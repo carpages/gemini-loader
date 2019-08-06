@@ -30,20 +30,19 @@ This modules accomplishes the following:
 ( function( factory ) {
   if ( typeof define === 'function' && define.amd ) {
     // AMD. Register as an anonymous module.
-    define([ 'underscore', 'jquery', 'gemini.support', 'jquery.boiler' ], factory );
+    define([ 'jquery.boiler', 'underscore', 'gemini.support' ], factory );
   } else if ( typeof exports === 'object' ) {
     // Node/CommonJS
     module.exports = factory(
+      require( '@carpages/jquery-boiler' ),
       require( 'underscore' ),
-      require( 'jquery' ),
-      require( 'gemini-support' ),
-      require( '@carpages/jquery-boiler' )
+      require( 'gemini-support' )
     );
   } else {
     // Browser globals
     factory( G );
   }
-})( function( _, $, support ) {
+})( function( $, _, support ) {
   'use strict';
 
   var G = window.G || {};
