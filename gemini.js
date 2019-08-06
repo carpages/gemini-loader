@@ -30,12 +30,7 @@ This modules accomplishes the following:
 ( function( factory ) {
   if ( typeof define === 'function' && define.amd ) {
     // AMD. Register as an anonymous module.
-    define([
-      'underscore',
-      'jquery',
-      'gemini.support',
-      'jquery.boiler'
-    ], factory );
+    define([ 'underscore', 'jquery', 'gemini.support', 'jquery.boiler' ], factory );
   } else if ( typeof exports === 'object' ) {
     // Node/CommonJS
     module.exports = factory(

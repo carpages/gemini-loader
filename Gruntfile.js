@@ -21,10 +21,7 @@ module.exports = function( grunt ) {
     qunit: {
       all: {
         options: {
-          inject: [
-            './test/qunit.config.js',
-            './node_modules/grunt-contrib-qunit/phantomjs/bridge.js'
-          ],
+          inject: [ './test/qunit.config.js', './node_modules/grunt-contrib-qunit/chrome/bridge.js' ],
           urls: [ 'http://localhost:9000/test/<%= pkg.name %>.test.html' ],
           page: {
             viewportSize: { width: 1280, height: 800 }

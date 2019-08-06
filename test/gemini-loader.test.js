@@ -81,14 +81,11 @@ require([ 'qunit', 'gemini', 'underscore', 'gemini.support' ], function(
     assert.strictEqual( G.support, support );
   });
 
-  QUnit.test(
-    'Inline specified Gemini data is copied to Gemini object',
-    function( assert ) {
-      assert.expect( 1 );
+  QUnit.test( 'Inline specified Gemini data is copied to Gemini object', function( assert ) {
+    assert.expect( 1 );
 
-      assert.strictEqual( G.D.hello, 'world!' );
-    }
-  );
+    assert.strictEqual( G.D.hello, 'world!' );
+  });
 
   QUnit.test( 'Queued javascript runs after Gemini is loaded', function( assert ) {
     assert.expect( 2 );
