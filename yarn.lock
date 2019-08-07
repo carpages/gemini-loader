@@ -94,11 +94,12 @@
     lodash "^4.2.0"
     to-fast-properties "^2.0.0"
 
-"@carpages/jquery-boiler@0.4.x":
-  version "0.4.0"
-  resolved "https://registry.yarnpkg.com/@carpages/jquery-boiler/-/jquery-boiler-0.4.0.tgz#354badbc9dc2c8010f93e515c59cf6f87d704789"
+"@carpages/jquery-boiler@0.5.x":
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/@carpages/jquery-boiler/-/jquery-boiler-0.5.0.tgz#62783b4e4397e3d04fb23e85f11693d49e584a88"
+  integrity sha512-Eoh4aqQwubyYTJIYzhFNZm9lRX05mLYBEWhP77LjsIGnrw+I0G3Yk8muu0bgQC/5BeZu9K2ORIvQnNpnSKRxrg==
   dependencies:
-    jquery ">=1.6"
+    jquery "3.x"
 
 "@types/minimatch@^3.0.3":
   version "3.0.3"
@@ -1074,9 +1075,10 @@ functional-red-black-tree@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/functional-red-black-tree/-/functional-red-black-tree-1.0.1.tgz#1b0ab3bd553b2a0d6399d29c0e3ea0b252078327"
 
-gemini-support@0.3.x:
-  version "0.3.2"
-  resolved "https://registry.yarnpkg.com/gemini-support/-/gemini-support-0.3.2.tgz#9f93b3e2629317d42b101271f3446c953d7aceb7"
+gemini-support@0.4.x:
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/gemini-support/-/gemini-support-0.4.0.tgz#f85cf958fb88a30903af67a06fe1847a04508f51"
+  integrity sha512-pAlXb4jCxjO4qVmW+bLQMeQvKjuvgqgviIeNVPtNk6mCP95CfHcKNWrKhOxSStx7K26UDBM7GhDtwD4dx+jsSw==
 
 generate-function@^2.0.0:
   version "2.0.0"
@@ -1556,9 +1558,10 @@ jodid25519@^1.0.0:
   dependencies:
     jsbn "~0.1.0"
 
-jquery@>=1.6:
-  version "3.2.1"
-  resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.2.1.tgz#5c4d9de652af6cd0a770154a631bba12b015c787"
+jquery@3.x:
+  version "3.4.1"
+  resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.4.1.tgz#714f1f8d9dde4bdfa55764ba37ef214630d80ef2"
+  integrity sha512-36+AdBzCL+y6qjw5Tx7HgzeGCzC81MDDgaUP8ld2zhx58HdqXGoBd+tHdrBMiyjGQs0Hxs/MLZTu/eHNJJuWPw==
 
 js-tokens@^3.0.0:
   version "3.0.1"

@@ -4,7 +4,7 @@
   "main": ["gemini.js"],
   "ignore": ["test"],
   "dependencies": {
-    "gemini-support": "0.3.x",
+    "gemini-support": "0.4.x",
     "jquery-boiler": "carpages/jquery-boiler",
     "underscore": "1.x"
   },

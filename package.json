@@ -13,8 +13,8 @@
     "url": "https://github.com/carpages/gemini-loader"
   },
   "dependencies": {
-    "@carpages/jquery-boiler": "0.4.x",
-    "gemini-support": "0.3.x",
+    "@carpages/jquery-boiler": "0.5.x",
+    "gemini-support": "0.4.x",
     "underscore": "1.x"
   },
   "devDependencies": {
