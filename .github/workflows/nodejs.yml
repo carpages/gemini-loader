@@ -25,7 +25,9 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - run: yarn global add grunt-cli bower
+    - run: |
+        export PATH="$(yarn global bin):$PATH"
+        yarn global add grunt-cli bower
     - name: Install Dependencies
       run: |
         yarn
