@@ -29,7 +29,8 @@ jobs:
     - run: npm i -g grunt-cli bower
     - name: Install Dependencies
       run: |
-        npm ci
+        which yarn
+        npm install --no-lockfile
         bower update
     - name: Grunt
       run: grunt ci --verbose
