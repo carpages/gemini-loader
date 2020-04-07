@@ -14,7 +14,6 @@ jobs:
 
     name: Build on ${{ matrix.node_version }} and ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
-
     strategy:
       matrix:
         os: [macos-latest, ubuntu-latest]
@@ -26,11 +25,10 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - run: npm i -g grunt-cli bower
+    - run: yarn global add grunt-cli bower
     - name: Install Dependencies
       run: |
-        which yarn
-        npm install --no-lockfile
+        yarn
         bower update
     - name: Grunt
       run: grunt ci --verbose
