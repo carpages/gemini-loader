@@ -94,10 +94,10 @@
     lodash "^4.2.0"
     to-fast-properties "^2.0.0"
 
-"@carpages/jquery-boiler@0.5.x":
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/@carpages/jquery-boiler/-/jquery-boiler-0.5.0.tgz#62783b4e4397e3d04fb23e85f11693d49e584a88"
-  integrity sha512-Eoh4aqQwubyYTJIYzhFNZm9lRX05mLYBEWhP77LjsIGnrw+I0G3Yk8muu0bgQC/5BeZu9K2ORIvQnNpnSKRxrg==
+"@carpages/jquery-boiler@0.6.0-alpha.1":
+  version "0.6.0-alpha.1"
+  resolved "https://registry.yarnpkg.com/@carpages/jquery-boiler/-/jquery-boiler-0.6.0-alpha.1.tgz#35f88f77532e1ac3cc9e80b0992758bcc5d89255"
+  integrity sha512-3/XkkqD41A+9FGxf65+5qzEEBeQmC6NuPuhTigLYmtz5D+WpJRkAZllOHlyHQXqO8/w1yKiDQGhtEfbzxVNN6Q==
   dependencies:
     jquery "3.x"
 
@@ -1327,10 +1327,10 @@ functional-red-black-tree@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/functional-red-black-tree/-/functional-red-black-tree-1.0.1.tgz#1b0ab3bd553b2a0d6399d29c0e3ea0b252078327"
 
-gemini-support@0.4.x:
-  version "0.4.0"
-  resolved "https://registry.yarnpkg.com/gemini-support/-/gemini-support-0.4.0.tgz#f85cf958fb88a30903af67a06fe1847a04508f51"
-  integrity sha512-pAlXb4jCxjO4qVmW+bLQMeQvKjuvgqgviIeNVPtNk6mCP95CfHcKNWrKhOxSStx7K26UDBM7GhDtwD4dx+jsSw==
+gemini-support@0.5.0-alpha.1:
+  version "0.5.0-alpha.1"
+  resolved "https://registry.yarnpkg.com/gemini-support/-/gemini-support-0.5.0-alpha.1.tgz#0f9cfb55da357866256e1d7fac2e7407cfa07189"
+  integrity sha512-yhtlTINAAapO5TMXQoRLJHz/iQ703jD2hLzOWC4fM/UH4MvRFJ9Zlp1J/3JWlYMkOlwVr8Gs8ACX025aHdnaLg==
 
 generate-function@^2.0.0:
   version "2.3.1"
