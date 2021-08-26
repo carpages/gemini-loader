@@ -26,7 +26,7 @@ This modules accomplishes the following:
 
 import _, {each} from 'underscore';
 import $ from '@carpages/jquery-boiler';
-import 'gemini-support';
+import support from 'gemini-support';
 
 let G = window.G || {};
 
