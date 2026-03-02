@@ -5,26 +5,10 @@ __metadata:
   version: 8
   cacheKey: 10c0
 
-"@carpages/jquery-boiler@npm:^0.5.0":
-  version: 0.5.0
-  resolution: "@carpages/jquery-boiler@npm:0.5.0::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40carpages%2Fjquery-boiler%2F-%2Fjquery-boiler-0.5.0.tgz"
-  dependencies:
-    jquery: "npm:3.x"
-  checksum: 10c0/1f7cf33457907bc4d4aaff54014a89737ee1982c3a60c8576d99cf74bdfba1ae45db02b89a70f42b82c1a266784ca926c8f563b382a85ebbace3afdfde6c8d37
-  languageName: node
-  linkType: hard
-
 "commander@npm:7.2.0":
   version: 7.2.0
   resolution: "commander@npm:7.2.0"
   checksum: 10c0/8d690ff13b0356df7e0ebbe6c59b4712f754f4b724d4f473d3cc5b3fdcf978e3a5dc3078717858a2ceb50b0f84d0660a7f22a96cdc50fb877d0c9bb31593d23a
-  languageName: node
-  linkType: hard
-
-"gemini-support@npm:^0.4.0":
-  version: 0.4.0
-  resolution: "gemini-support@npm:0.4.0"
-  checksum: 10c0/3b4a8af894fab245ed59fa10e19ccf0fbd9b0d550664ed035be0c784248608192c13481af40a98d7ff64154f1f8c000a8c01fb2ee2317b7d555f6b46f47bbf9e
   languageName: node
   linkType: hard
 
@@ -39,20 +23,6 @@ __metadata:
   version: 0.1.2
   resolution: "globrex@npm:0.1.2"
   checksum: 10c0/a54c029520cf58bda1d8884f72bd49b4cd74e977883268d931fd83bcbd1a9eb96d57c7dbd4ad80148fb9247467ebfb9b215630b2ed7563b2a8de02e1ff7f89d1
-  languageName: node
-  linkType: hard
-
-"jquery@npm:3.x":
-  version: 3.7.1
-  resolution: "jquery@npm:3.7.1"
-  checksum: 10c0/808cfbfb758438560224bf26e17fcd5afc7419170230c810dd11f5c1792e2263e2970cca8d659eb84fcd9acc301edb6d310096e450277d54be4f57071b0c82d9
-  languageName: node
-  linkType: hard
-
-"lodash@npm:^4.17.23":
-  version: 4.17.23
-  resolution: "lodash@npm:4.17.23"
-  checksum: 10c0/1264a90469f5bb95d4739c43eb6277d15b6d9e186df4ac68c3620443160fc669e2f14c11e7d8b2ccf078b81d06147c01a8ccced9aab9f9f63d50dcf8cace6bf6
   languageName: node
   linkType: hard
 
@@ -90,12 +60,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "test@workspace:."
   dependencies:
-    "@carpages/jquery-boiler": "npm:^0.5.0"
-    gemini-support: "npm:^0.4.0"
-    lodash: "npm:^4.17.23"
     qunit: "npm:^2.25.0"
     requirejs: "npm:^2.3.8"
-    underscore: "npm:^1.13.8"
   languageName: unknown
   linkType: soft
 
@@ -106,12 +72,5 @@ __metadata:
     globalyzer: "npm:0.1.0"
     globrex: "npm:^0.1.2"
   checksum: 10c0/cbe072f0d213a1395d30aa94845a051d4af18fe8ffb79c8e99ac1787cd25df69083f17791a53997cb65f469f48950cb61426ccc0683cc9df170ac2430e883702
-  languageName: node
-  linkType: hard
-
-"underscore@npm:^1.13.8":
-  version: 1.13.8
-  resolution: "underscore@npm:1.13.8"
-  checksum: 10c0/6677688daeda30484823e77c0b89ce4dcf29964a77d5a06f37299c007ab4bb1c66a0ff75e0d274620b62a1fe2a6ba29879f8214533ca611d71a1ae504f2bfc9b
   languageName: node
   linkType: hard
