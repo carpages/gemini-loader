@@ -10,7 +10,11 @@
     "contributors": [
         "Jeff Andrews <jeff.andrews@carpages.ca>"
     ],
-    "main": "dist/gemini.min.js",
+    "main": "dist/gemini.js",
+    "files": [
+        "dist",
+        "gemini.js"
+    ],
     "repository": {
         "type": "git",
         "url": "https://github.com/carpages/gemini-loader"
