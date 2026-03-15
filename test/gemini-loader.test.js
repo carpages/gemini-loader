@@ -4,7 +4,6 @@ require(['qunit', 'gemini', 'lodash', 'gemini.support'], function (QUnit, G, _, 
 
   // Necessary for SauceLab testing
   var log = [];
-  var testName;
 
   QUnit.done(function (testResults) {
     var tests = [];

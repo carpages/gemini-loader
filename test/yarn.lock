@@ -26,6 +26,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"jquery@npm:>=3":
+  version: 4.0.0
+  resolution: "jquery@npm:4.0.0"
+  checksum: 10c0/06d8d0f51121af5a691f8b59c74823157bb5b60eea915b30eaa920d6c0ffd91e60ba81e9b97bd8203f331f9dd8d0ec9a4b010935ea314bdd2f15453c29bc780b
+  languageName: node
+  linkType: hard
+
 "node-watch@npm:0.7.3":
   version: 0.7.3
   resolution: "node-watch@npm:0.7.3"
@@ -60,6 +67,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "test@workspace:."
   dependencies:
+    jquery: "npm:>=3"
     qunit: "npm:^2.25.0"
     requirejs: "npm:^2.3.8"
   languageName: unknown

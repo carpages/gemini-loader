@@ -25,6 +25,9 @@
         "lodash": "^4.17.23",
         "underscore": "^1.13.8"
     },
+    "peerDependencies": {
+        "jquery": ">=3"
+    },
     "devDependencies": {
         "@babel/core": "^7.29.0",
         "@babel/eslint-parser": "^7.28.6",
@@ -42,6 +45,7 @@
         "eslint-config-prettier": "^10.1.8",
         "eslint-plugin-prettier": "^5.5.5",
         "eslint-plugin-qunit": "^8.2.6",
+        "jquery": "^4.0.0",
         "prettier": "^3.8.1",
         "rollup": "^4.59.0"
     },

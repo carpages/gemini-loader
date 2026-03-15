@@ -3183,10 +3183,13 @@ __metadata:
     eslint-plugin-prettier: "npm:^5.5.5"
     eslint-plugin-qunit: "npm:^8.2.6"
     gemini-support: "npm:^0.4.0"
+    jquery: "npm:^4.0.0"
     lodash: "npm:^4.17.23"
     prettier: "npm:^3.8.1"
     rollup: "npm:^4.59.0"
     underscore: "npm:^1.13.8"
+  peerDependencies:
+    jquery: ">=3"
   languageName: unknown
   linkType: soft
 
