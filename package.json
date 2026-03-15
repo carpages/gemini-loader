@@ -25,12 +25,11 @@
     },
     "dependencies": {
         "@carpages/jquery-boiler": "^0.6.0-alpha.3",
-        "gemini-support": "^0.4.0",
-        "lodash": "^4.17.23",
-        "underscore": "^1.13.8"
+        "gemini-support": "^0.4.0"
     },
     "peerDependencies": {
-        "jquery": ">=3"
+        "jquery": ">=3",
+        "lodash": ">=4"
     },
     "devDependencies": {
         "@babel/core": "^7.29.0",
@@ -51,6 +50,7 @@
         "eslint-plugin-qunit": "^8.2.6",
         "globals": "^17.4.0",
         "jquery": "^4.0.0",
+        "lodash": "^4.17.23",
         "prettier": "^3.8.1",
         "rollup": "^4.59.0"
     },

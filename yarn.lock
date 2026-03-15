@@ -2869,9 +2869,9 @@ __metadata:
     lodash: "npm:^4.17.23"
     prettier: "npm:^3.8.1"
     rollup: "npm:^4.59.0"
-    underscore: "npm:^1.13.8"
   peerDependencies:
     jquery: ">=3"
+    lodash: ">=4"
   languageName: unknown
   linkType: soft
 
@@ -4691,13 +4691,6 @@ __metadata:
     has-symbols: "npm:^1.1.0"
     which-boxed-primitive: "npm:^1.1.1"
   checksum: 10c0/7dbd35ab02b0e05fe07136c72cb9355091242455473ec15057c11430129bab38b7b3624019b8778d02a881c13de44d63cd02d122ee782fb519e1de7775b5b982
-  languageName: node
-  linkType: hard
-
-"underscore@npm:^1.13.8":
-  version: 1.13.8
-  resolution: "underscore@npm:1.13.8"
-  checksum: 10c0/6677688daeda30484823e77c0b89ce4dcf29964a77d5a06f37299c007ab4bb1c66a0ff75e0d274620b62a1fe2a6ba29879f8214533ca611d71a1ae504f2bfc9b
   languageName: node
   linkType: hard
 

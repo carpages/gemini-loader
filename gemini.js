@@ -37,7 +37,7 @@ let G = window.G || {};
 // Store any data
 G.D = G.D || {};
 
-// Store underscore.js
+// Store lodash
 G._ = _;
 
 // Add function to run queued JS
